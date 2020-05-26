@@ -63,48 +63,6 @@
 //    }
     
     // Nutrition Identifiers
-    if ([@"DietaryEnergy" isEqualToString: key]) {
-        return [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierDietaryEnergyConsumed];
-    }
-    
-    // Vital Signs Identifiers
-    if ([@"HeartRate" isEqualToString: key]) {
-        return [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierHeartRate];
-    }else if ([@"Oxygen" isEqualToString: key]) {
-        return [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierOxygenSaturation];
-    else if ([@"BodyTemperature" isEqualToString: key]) {
-        return [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierBodyTemperature];
-    }else if ([@"BloodPressureSystolic" isEqualToString: key]) {
-        return [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierBloodPressureSystolic];
-    }else if ([@"BloodPressureDiastolic" isEqualToString: key]) {
-        return [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierBloodPressureDiastolic];
-    }else if ([@"RespiratoryRate" isEqualToString: key]) {
-        return [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierRespiratoryRate];
-    }
-    
-    // Results Identifiers
-    if ([@"BloodGlucose" isEqualToString: key]) {
-        return [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierBloodGlucose];
-    }
-    
-    // Sleep
-    if ([@"SleepAnalysis" isEqualToString: key]) {
-        return [HKObjectType categoryTypeForIdentifier:HKCategoryTypeIdentifierSleepAnalysis];
-    }
-    
-    // Mindfulness
-    if ([@"MindfulSession" isEqualToString: key] && systemVersion >= 10.0) {
-        return [HKObjectType categoryTypeForIdentifier:HKCategoryTypeIdentifierMindfulSession];
-    }
-
-    // Hearing
-    if ([@"HeadphoneAudioExposure" isEqualToString: key] && systemVersion >= 10.0) {
-        return [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierHeadphoneAudioExposure];
-    } else if ([@"EnvironmentalAudioExposure" isEqualToString: key] && systemVersion >= 10.0) {
-        return [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierEnvironmentalAudioExposure];
-    }
-
-    // Nutrition Identifiers
     if([@"Biotin" isEqualToString:key]) {
         return [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierDietaryBiotin];
     } else if([@"Caffeine" isEqualToString:key]) {
@@ -181,6 +139,45 @@
         return [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierDietaryZinc];
     } else if([@"Water" isEqualToString:key]) {
         return [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierDietaryWater];
+    }
+    
+    // Vital Signs Identifiers
+    if ([@"HeartRate" isEqualToString: key]) {
+        return [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierHeartRate];
+    }else if ([@"Oxygen" isEqualToString: key]) {
+        return [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierOxygenSaturation];
+    }else if ([@"BodyTemperature" isEqualToString: key]) {
+        return [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierBodyTemperature];
+    }else if ([@"BloodPressureSystolic" isEqualToString: key]) {
+        return [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierBloodPressureSystolic];
+    }else if ([@"BloodPressureDiastolic" isEqualToString: key]) {
+        return [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierBloodPressureDiastolic];
+    }else if ([@"RespiratoryRate" isEqualToString: key]) {
+        return [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierRespiratoryRate];
+    }
+    
+    // Results Identifiers
+    if ([@"BloodGlucose" isEqualToString: key]) {
+        return [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierBloodGlucose];
+    }
+    
+    // Sleep
+    if ([@"SleepAnalysis" isEqualToString: key]) {
+        return [HKObjectType categoryTypeForIdentifier:HKCategoryTypeIdentifierSleepAnalysis];
+    }
+    
+    // workouts
+    if ([@"MindfulSession" isEqualToString: key] && systemVersion >= 10.0) {
+        return [HKObjectType categoryTypeForIdentifier:HKCategoryTypeIdentifierMindfulSession];
+    } else if ([@"MindfulSession" isEqualToString: key]){
+        return [HKObjectType workoutType];
+    }
+
+    //hearing
+    if ([@"HeadphoneAudioExposure" isEqualToString: key] && systemVersion >= 10.0) {
+        return [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierHeadphoneAudioExposure];
+    } else if ([@"EnvironmentalAudioExposure" isEqualToString: key] && systemVersion >= 10.0) {
+        return [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierEnvironmentalAudioExposure];
     }
     
     return nil;

@@ -186,6 +186,121 @@ RCT_EXPORT_METHOD(getDailyFlightsClimbedSamples:(NSDictionary *)input callback:(
     [self fitness_getDailyFlightsClimbedSamples:input callback:callback];
 }
 
+RCT_EXPORT_METHOD(getDietaryEnergy:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
+{
+    [self dietary_getDietaryEnergy:input callback:callback];
+}
+
+RCT_EXPORT_METHOD(getCaffeine:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
+{
+    [self dietary_getCaffeine:input callback:callback];
+}
+
+RCT_EXPORT_METHOD(getCarbohydrates:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
+{
+    [self dietary_getCarbohydrates:input callback:callback];
+}
+
+RCT_EXPORT_METHOD(getSugar:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
+{
+    [self dietary_getSugar:input callback:callback];
+}
+
+RCT_EXPORT_METHOD(getFiber:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
+{
+    [self dietary_getFiber:input callback:callback];
+}
+
+RCT_EXPORT_METHOD(getFolate:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
+{
+    [self dietary_getFolate:input  callback:callback];
+}
+
+RCT_EXPORT_METHOD(getIron:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
+{
+    [self dietary_getIron:input  callback:callback];
+}
+
+RCT_EXPORT_METHOD(getMagnesium:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
+{
+    [self dietary_getMagnesium:input  callback:callback];
+}
+
+RCT_EXPORT_METHOD(getMonounsaturatedFat:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
+{
+    [self dietary_getMonounsaturatedFat:input  callback:callback];
+}
+
+RCT_EXPORT_METHOD(getPolyunsaturatedFat:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
+{
+    [self dietary_getPolyunsaturatedFat:input  callback:callback];
+}
+
+RCT_EXPORT_METHOD(getPotassium:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
+{
+    [self dietary_getPotassium:input  callback:callback];
+}
+
+RCT_EXPORT_METHOD(getProtein:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
+{
+    [self dietary_getProtein:input  callback:callback];
+}
+
+RCT_EXPORT_METHOD(getSaturatedFat:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
+{
+    [self dietary_getSaturatedFat:input  callback:callback];
+}
+
+RCT_EXPORT_METHOD(getSodium:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
+{
+    [self dietary_getSodium:input  callback:callback];
+}
+
+RCT_EXPORT_METHOD(getTotalFat:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
+{
+    [self dietary_getTotalFat:input  callback:callback];
+}
+
+RCT_EXPORT_METHOD(getVitaminA:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
+{
+    [self dietary_getVitaminA:input  callback:callback];
+}
+
+RCT_EXPORT_METHOD(getVitaminB6:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
+{
+    [self dietary_getVitaminB6:input  callback:callback];
+}
+
+RCT_EXPORT_METHOD(getVitaminB12:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
+{
+    [self dietary_getVitaminB12:input  callback:callback];
+}
+
+RCT_EXPORT_METHOD(getVitaminC:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
+{
+    [self dietary_getVitaminC:input  callback:callback];
+}
+
+RCT_EXPORT_METHOD(getVitaminD:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
+{
+    [self dietary_getVitaminD:input  callback:callback];
+}
+
+RCT_EXPORT_METHOD(getVitaminE:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
+{
+    [self dietary_getVitaminE:input  callback:callback];
+}
+
+RCT_EXPORT_METHOD(getVitaminK:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
+{
+    [self dietary_getVitaminK:input  callback:callback];
+}
+
+RCT_EXPORT_METHOD(getWater:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
+{
+    [self dietary_getWater:input  callback:callback];
+}
+
 RCT_EXPORT_METHOD(saveFood:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
 {
     [self saveFood:input callback:callback];

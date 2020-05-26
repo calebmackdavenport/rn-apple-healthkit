@@ -15,6 +15,203 @@
 
 @implementation RCTAppleHealthKit (Methods_Dietary)
 
+- (void)dietary_getDietaryEnergy:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback
+{
+    if (@available(iOS 11.0, *)) {
+        [input setValue:[HKUnit largeCalorieUnit] forKey:@"unitType"];
+    }
+    else {
+        [input setValue:[HKUnit kilocalorieUnit] forKey:@"unitType"];
+    }
+    [input setValue:[HKQuantityType quantityTypeForIdentifier:HKQuantityTypeIdentifierDietaryEnergyConsumed] forKey:@"quantityType"];
+    [self getNutritionFromTypeAndUnit:input callback:callback];
+}
+
+- (void)dietary_getCaffeine:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback
+{
+    [input setValue:[HKUnit gramUnit] forKey:@"unitType"];
+    [input setValue:[HKQuantityType quantityTypeForIdentifier:HKQuantityTypeIdentifierDietaryCaffeine] forKey:@"quantityType"];
+    [self getNutritionFromTypeAndUnit:input callback:callback];
+}
+
+- (void)dietary_getCarbohydrates:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback
+{
+    [input setValue:[HKUnit gramUnit] forKey:@"unitType"];
+    [input setValue:[HKQuantityType quantityTypeForIdentifier:HKQuantityTypeIdentifierDietaryCarbohydrates] forKey:@"quantityType"];
+    [self getNutritionFromTypeAndUnit:input callback:callback];
+}
+
+- (void)dietary_getSugar:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback
+{
+    [input setValue:[HKUnit gramUnit] forKey:@"unitType"];
+    [input setValue:[HKQuantityType quantityTypeForIdentifier:HKQuantityTypeIdentifierDietarySugar] forKey:@"quantityType"];
+    [self getNutritionFromTypeAndUnit:input callback:callback];
+}
+
+- (void)dietary_getFiber:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback
+{
+    [input setValue:[HKUnit gramUnit] forKey:@"unitType"];
+    [input setValue:[HKQuantityType quantityTypeForIdentifier:HKQuantityTypeIdentifierDietaryFiber] forKey:@"quantityType"];
+    [self getNutritionFromTypeAndUnit:input callback:callback];
+}
+
+- (void)dietary_getFolate:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback
+{
+    [input setValue:[HKUnit gramUnit] forKey:@"unitType"];
+    [input setValue:[HKQuantityType quantityTypeForIdentifier:HKQuantityTypeIdentifierDietaryFolate] forKey:@"quantityType"];
+    [self getNutritionFromTypeAndUnit:input callback:callback];
+}
+
+- (void)dietary_getIron:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback
+{
+    [input setValue:[HKUnit gramUnit] forKey:@"unitType"];
+    [input setValue:[HKQuantityType quantityTypeForIdentifier:HKQuantityTypeIdentifierDietaryIron] forKey:@"quantityType"];
+    [self getNutritionFromTypeAndUnit:input callback:callback];
+}
+
+- (void)dietary_getMagnesium:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback
+{
+    [input setValue:[HKUnit gramUnit] forKey:@"unitType"];
+    [input setValue:[HKQuantityType quantityTypeForIdentifier:HKQuantityTypeIdentifierDietaryMagnesium] forKey:@"quantityType"];
+    [self getNutritionFromTypeAndUnit:input callback:callback];
+}
+
+- (void)dietary_getMonounsaturatedFat:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback
+{
+    [input setValue:[HKUnit gramUnit] forKey:@"unitType"];
+    [input setValue:[HKQuantityType quantityTypeForIdentifier:HKQuantityTypeIdentifierDietaryFatMonounsaturated] forKey:@"quantityType"];
+    [self getNutritionFromTypeAndUnit:input callback:callback];
+}
+
+- (void)dietary_getPolyunsaturatedFat:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback
+{
+    [input setValue:[HKUnit gramUnit] forKey:@"unitType"];
+    [input setValue:[HKQuantityType quantityTypeForIdentifier:HKQuantityTypeIdentifierDietaryFatPolyunsaturated] forKey:@"quantityType"];
+    [self getNutritionFromTypeAndUnit:input callback:callback];
+}
+
+- (void)dietary_getPotassium:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback
+{
+    [input setValue:[HKUnit gramUnit] forKey:@"unitType"];
+    [input setValue:[HKQuantityType quantityTypeForIdentifier:HKQuantityTypeIdentifierDietaryPotassium] forKey:@"quantityType"];
+    [self getNutritionFromTypeAndUnit:input callback:callback];
+}
+
+- (void)dietary_getProtein:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback
+{
+    [input setValue:[HKUnit gramUnit] forKey:@"unitType"];
+    [input setValue:[HKQuantityType quantityTypeForIdentifier:HKQuantityTypeIdentifierDietaryProtein] forKey:@"quantityType"];
+    [self getNutritionFromTypeAndUnit:input callback:callback];
+}
+
+- (void)dietary_getSaturatedFat:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback
+{
+    [input setValue:[HKUnit gramUnit] forKey:@"unitType"];
+    [input setValue:[HKQuantityType quantityTypeForIdentifier:HKQuantityTypeIdentifierDietaryFatSaturated] forKey:@"quantityType"];
+    [self getNutritionFromTypeAndUnit:input callback:callback];
+}
+
+- (void)dietary_getSodium:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback
+{
+    [input setValue:[HKUnit gramUnit] forKey:@"unitType"];
+    [input setValue:[HKQuantityType quantityTypeForIdentifier:HKQuantityTypeIdentifierDietarySodium] forKey:@"quantityType"];
+    [self getNutritionFromTypeAndUnit:input callback:callback];
+}
+
+- (void)dietary_getTotalFat:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback
+{
+    [input setValue:[HKUnit gramUnit] forKey:@"unitType"];
+    [input setValue:[HKQuantityType quantityTypeForIdentifier:HKQuantityTypeIdentifierDietaryFatTotal] forKey:@"quantityType"];
+    [self getNutritionFromTypeAndUnit:input callback:callback];
+}
+
+- (void)dietary_getVitaminA:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback
+{
+    [input setValue:[HKUnit gramUnit] forKey:@"unitType"];
+    [input setValue:[HKQuantityType quantityTypeForIdentifier:HKQuantityTypeIdentifierDietaryVitaminA] forKey:@"quantityType"];
+    [self getNutritionFromTypeAndUnit:input callback:callback];
+}
+
+- (void)dietary_getVitaminB6:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback
+{
+    [input setValue:[HKUnit gramUnit] forKey:@"unitType"];
+    [input setValue:[HKQuantityType quantityTypeForIdentifier:HKQuantityTypeIdentifierDietaryVitaminB6] forKey:@"quantityType"];
+    [self getNutritionFromTypeAndUnit:input callback:callback];
+}
+
+- (void)dietary_getVitaminB12:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback
+{
+    [input setValue:[HKUnit gramUnit] forKey:@"unitType"];
+    [input setValue:[HKQuantityType quantityTypeForIdentifier:HKQuantityTypeIdentifierDietaryVitaminB12] forKey:@"quantityType"];
+    [self getNutritionFromTypeAndUnit:input callback:callback];
+}
+
+- (void)dietary_getVitaminC:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback
+{
+    [input setValue:[HKUnit gramUnit] forKey:@"unitType"];
+    [input setValue:[HKQuantityType quantityTypeForIdentifier:HKQuantityTypeIdentifierDietaryVitaminC] forKey:@"quantityType"];
+    [self getNutritionFromTypeAndUnit:input callback:callback];
+}
+
+- (void)dietary_getVitaminD:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback
+{
+    [input setValue:[HKUnit gramUnit] forKey:@"unitType"];
+    [input setValue:[HKQuantityType quantityTypeForIdentifier:HKQuantityTypeIdentifierDietaryVitaminD] forKey:@"quantityType"];
+    [self getNutritionFromTypeAndUnit:input callback:callback];
+}
+
+- (void)dietary_getVitaminE:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback
+{
+    [input setValue:[HKUnit gramUnit] forKey:@"unitType"];
+    [input setValue:[HKQuantityType quantityTypeForIdentifier:HKQuantityTypeIdentifierDietaryVitaminE] forKey:@"quantityType"];
+    [self getNutritionFromTypeAndUnit:input callback:callback];
+}
+
+- (void)dietary_getVitaminK:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback
+{
+    [input setValue:[HKUnit gramUnit] forKey:@"unitType"];
+    [input setValue:[HKQuantityType quantityTypeForIdentifier:HKQuantityTypeIdentifierDietaryVitaminK] forKey:@"quantityType"];
+    [self getNutritionFromTypeAndUnit:input callback:callback];
+}
+
+- (void)dietary_getWater:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback
+{
+    [input setValue:[HKUnit fluidOunceUSUnit] forKey:@"unitType"];
+    [input setValue:[HKQuantityType quantityTypeForIdentifier:HKQuantityTypeIdentifierDietaryWater] forKey:@"quantityType"];
+    [self getNutritionFromTypeAndUnit:input callback:callback];
+}
+
+
+- (void)getNutritionFromTypeAndUnit:(NSDictionary *)nutritionObject callback:(RCTResponseSenderBlock)callback
+{
+    HKQuantityType *nutritionType = [nutritionObject objectForKey:@"quantityType"];
+    HKUnit *unit = [nutritionObject objectForKey:@"unitType"];
+    NSDate *startDate = [RCTAppleHealthKit dateFromOptions:nutritionObject key:@"startDate" withDefault:nil];
+    NSDate *endDate = [RCTAppleHealthKit dateFromOptions:nutritionObject key:@"endDate" withDefault:[NSDate date]];
+    
+    if(startDate == nil){
+        callback(@[RCTMakeError(@"startDate is required in options", nil, nil)]);
+        return;
+    }
+    
+    NSPredicate * predicate = [RCTAppleHealthKit predicateForSamplesBetweenDates:startDate endDate:endDate];
+    
+    [self fetchQuantitySamplesOfType:nutritionType
+                                unit:unit
+                           predicate:predicate
+                           ascending:false
+                               limit:HKObjectQueryNoLimit
+                          completion:^(NSArray *results, NSError *error) {
+                              if(results){
+                                  callback(@[[NSNull null], results]);
+                                  return;
+                              } else {
+                                  callback(@[RCTJSErrorFromNSError(error)]);
+                                  return;
+                              }
+                          }];
+}
+
 - (void)saveFood:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback
 {
     NSString *foodNameValue = [RCTAppleHealthKit stringFromOptions:input key:@"foodName" withDefault:nil];
