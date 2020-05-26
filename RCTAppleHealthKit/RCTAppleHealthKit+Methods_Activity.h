@@ -15,5 +15,7 @@
 - (void)activity_getActiveEnergyDailySamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback;
 - (void)activity_getBasalEnergyBurned:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback;
 - (void)activity_getBasalEnergyDailySamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback;
+- (void)activity_getVO2Max:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback;
+- (void)activity_getNikeFuel:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback;
 
 @end

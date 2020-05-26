@@ -135,4 +135,71 @@
                                      }];
 }
 
+- (void)activity_getVO2Max:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback
+{
+    if (@available(iOS 11.0, *)) {
+        HKQuantityType *dataType = [HKQuantityType quantityTypeForIdentifier:HKQuantityTypeIdentifierVO2Max];
+        NSDate *startDate = [RCTAppleHealthKit dateFromOptions:input key:@"startDate" withDefault:nil];
+        NSDate *endDate = [RCTAppleHealthKit dateFromOptions:input key:@"endDate" withDefault:[NSDate date]];
+        HKUnit *mL = [HKUnit literUnitWithMetricPrefix:HKMetricPrefixMilli];
+        HKUnit *kg = [HKUnit gramUnitWithMetricPrefix:HKMetricPrefixKilo];
+        HKUnit *min = [HKUnit minuteUnit];
+        HKUnit *kgPerMin = [kg unitMultipliedByUnit: min];
+        HKUnit *flowRate = [mL unitDividedByUnit: kgPerMin];
+
+        if(startDate == nil){
+            callback(@[RCTMakeError(@"startDate is required in options", nil, nil)]);
+            return;
+        }
+        NSPredicate * predicate = [RCTAppleHealthKit predicateForSamplesBetweenDates:startDate endDate:endDate];
+
+        [self fetchQuantitySamplesOfType:dataType
+                                    unit:flowRate
+                               predicate:predicate
+                               ascending:false
+                                   limit:HKObjectQueryNoLimit
+                              completion:^(NSArray *results, NSError *error) {
+                                  if(results){
+                                      callback(@[[NSNull null], results]);
+                                      return;
+                                  } else {
+                                      callback(@[RCTJSErrorFromNSError(error)]);
+                                      return;
+                                  }
+                              }];
+    } else {
+        callback(@[RCTMakeError(@"VO2 max not supported on this device", nil, nil)]);
+        return;
+    }
+}
+
+- (void)activity_getNikeFuel:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback
+{
+    HKQuantityType *dataType = [HKQuantityType quantityTypeForIdentifier:HKQuantityTypeIdentifierNikeFuel];
+    NSDate *startDate = [RCTAppleHealthKit dateFromOptions:input key:@"startDate" withDefault:nil];
+    NSDate *endDate = [RCTAppleHealthKit dateFromOptions:input key:@"endDate" withDefault:[NSDate date]];
+    HKUnit *unitType = [HKUnit countUnit];
+
+    if(startDate == nil){
+        callback(@[RCTMakeError(@"startDate is required in options", nil, nil)]);
+        return;
+    }
+    NSPredicate * predicate = [RCTAppleHealthKit predicateForSamplesBetweenDates:startDate endDate:endDate];
+
+    [self fetchQuantitySamplesOfType:dataType
+                                unit:unitType
+                           predicate:predicate
+                           ascending:false
+                               limit:HKObjectQueryNoLimit
+                          completion:^(NSArray *results, NSError *error) {
+                              if(results){
+                                  callback(@[[NSNull null], results]);
+                                  return;
+                              } else {
+                                  callback(@[RCTJSErrorFromNSError(error)]);
+                                  return;
+                              }
+                          }];
+}
+
 @end

@@ -71,5 +71,6 @@ export const Permissions = {
   Weight: "Weight",
   Workout: "Workout",
   HeadphoneAudioExposure: "HeadphoneAudioExposure",
-  EnvironmentalAudioExposure: "EnvironmentalAudioExposure"
+  EnvironmentalAudioExposure: "EnvironmentalAudioExposure",
+  VO2Max: "VO2Max"
 }

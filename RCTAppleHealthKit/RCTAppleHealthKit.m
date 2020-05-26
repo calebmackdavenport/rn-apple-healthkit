@@ -341,6 +341,16 @@ RCT_EXPORT_METHOD(getBasalEnergyDailySamples:(NSDictionary *)input callback:(RCT
    [self activity_getBasalEnergyDailySamples:input callback:callback];
 }
 
+RCT_EXPORT_METHOD(getVO2Max:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
+{
+   [self activity_getVO2Max:input callback:callback];
+}
+
+RCT_EXPORT_METHOD(getNikeFuel:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
+{
+   [self activity_getNikeFuel:input callback:callback];
+}
+
 RCT_EXPORT_METHOD(getBodyTemperatureSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback)
 {
     [self vitals_getBodyTemperatureSamples:input callback:callback];
