@@ -186,14 +186,17 @@
 {
     HKQuantityType *nutritionType = [nutritionObject objectForKey:@"quantityType"];
     HKUnit *unit = [nutritionObject objectForKey:@"unitType"];
-    NSDate *startDate = [RCTAppleHealthKit dateFromOptions:nutritionObject key:@"startDate" withDefault:nil];
-    NSDate *endDate = [RCTAppleHealthKit dateFromOptions:nutritionObject key:@"endDate" withDefault:[NSDate date]];
+    NSDate *now = [NSDate date];
+    NSDate *endDate = now;
+    NSDate *startDate = [now dateByAddingTimeInterval:-60*60*24*14];
     
-    if(startDate == nil){
-        callback(@[RCTMakeError(@"startDate is required in options", nil, nil)]);
-        return;
-    }
-    
+//    if ([[nutritionObject objectForKey:@"startDate"] count] != 0) {
+//      startDate = [RCTAppleHealthKit dateFromOptions:nutritionObject key:@"startDate" withDefault:[now dateByAddingTimeInterval:-60*60*24*14]];
+//    };
+//    if ([[nutritionObject objectForKey:@"endDate"] count] != 0) {
+//      endDate = [RCTAppleHealthKit dateFromOptions:nutritionObject key:@"endDate" withDefault:now];
+//    };
+
     NSPredicate * predicate = [RCTAppleHealthKit predicateForSamplesBetweenDates:startDate endDate:endDate];
     
     [self fetchQuantitySamplesOfType:nutritionType

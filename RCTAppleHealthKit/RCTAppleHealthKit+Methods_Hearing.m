@@ -14,11 +14,16 @@
 
 @implementation RCTAppleHealthKit (Methods_Hearing)
 
-
-
 - (void)hearing_getHeadphoneAudioSamples:(NSDictionary *)input callback:(RCTResponseSenderBlock)callback
 {
-    HKQuantityType *audioExposureType = [HKQuantityType quantityTypeForIdentifier:HKQuantityTypeIdentifierHeadphoneAudioExposure];
+    UIDevice *deviceInfo = [UIDevice currentDevice];
+    float systemVersion = deviceInfo.systemVersion.floatValue;
+    if (systemVersion < 13) {
+        callback(@[RCTMakeError(@"Heapdhone Audio Levels not supported on this device.", nil, nil)]);
+        return;
+    }
+    
+    HKQuantityType *audioExposureType = [HKQuantityType quantityTypeForIdentifier:HKQuantityTypeIdentifierHeadphoneAudioExposure];    
     NSDate *startDate = [RCTAppleHealthKit dateFromOptions:input key:@"startDate" withDefault:nil];
     NSDate *endDate = [RCTAppleHealthKit dateFromOptions:input key:@"endDate" withDefault:[NSDate date]];
     HKUnit *audioUnit = [HKUnit decibelAWeightedSoundPressureLevelUnit];

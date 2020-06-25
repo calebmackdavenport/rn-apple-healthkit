@@ -178,9 +178,9 @@
     }
 
     //hearing
-    if ([@"HeadphoneAudioExposure" isEqualToString: key] && systemVersion >= 10.0) {
+    if ([@"HeadphoneAudioExposure" isEqualToString: key] && systemVersion >= 13.0) {
         return [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierHeadphoneAudioExposure];
-    } else if ([@"EnvironmentalAudioExposure" isEqualToString: key] && systemVersion >= 10.0) {
+    } else if ([@"EnvironmentalAudioExposure" isEqualToString: key] && systemVersion >= 13.0) {
         return [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierEnvironmentalAudioExposure];
     }
     
